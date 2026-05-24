@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="..\Xalise_BooksLibrary.Application\Xalise_BooksLibrary.Application.csproj" />
+    <ProjectReference Include="..\Xalise_BooksLibrary.Infrastructure\Xalise_BooksLibrary.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+</Project>

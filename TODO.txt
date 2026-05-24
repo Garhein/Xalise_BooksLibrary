@@ -1,0 +1,10 @@
+Modification d'un publication (BookPublication) :
+	- Si modification de BookId, PublisherId ou EditorialVersionId : verifier que le triplet d'information n'est pas déjà présent dans la base de données pour éviter les doublons.
+
+Modification d'une liaison livre/auteur (BookAuthor) :
+	- Si modification de BookId ou AuthorId : verifier que le couple d'information n'est pas déjà présent dans la base de données pour éviter les doublons.
+
+Modification d'une liaison livre/catégorie (BookCategory) :
+	- Si modification de BookId ou CategoryId : verifier que le couple d'information n'est pas déjà présent dans la base de données pour éviter les doublons.
+
+--> Les trois évolutions ci-dessus sont à implémenter dans les méthodes de modification (PUT) des contrôleurs correspondants.
