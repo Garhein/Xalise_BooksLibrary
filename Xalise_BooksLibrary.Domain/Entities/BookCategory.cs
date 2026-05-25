@@ -44,16 +44,16 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// <param name="categoryId">Identifiant technique de la catégorie associée.</param>
         public void Update(int bookId, int categoryId)
         {
-            this.ChangeBookId(bookId);
-            this.ChangeCategoryId(categoryId);
+            this.UpdateBookId(bookId);
+            this.UpdateCategoryId(categoryId);
         }
 
         /// <summary>
-        /// Modifie l'identifiant du livre.
+        /// Modifie l'identifiant du livre associé.
         /// </summary>
-        /// <param name="bookId">Identifiant du livre.</param>
+        /// <param name="bookId">Identifiant du livre associé.</param>
         /// <exception cref="EntityValidationException">Si <paramref name="bookId"/> est inférieur ou égal à 0.</exception>
-        public void ChangeBookId(int bookId)
+        public void UpdateBookId(int bookId)
         {
             if (bookId <= 0)
             {
@@ -64,11 +64,11 @@ namespace Xalise_BooksLibrary.Domain.Entities
         }
 
         /// <summary>
-        /// Modifie l'identifiant du livre.
+        /// Modifie l'identifiant de la catégorie associée.
         /// </summary>
-        /// <param name="categoryId">Identifiant de la catégorie.</param>
+        /// <param name="categoryId">Identifiant de la catégorie associée.</param>
         /// <exception cref="EntityValidationException">Si <paramref name="categoryId"/> est inférieur ou égal à 0.</exception>
-        public void ChangeCategoryId(int categoryId)
+        public void UpdateCategoryId(int categoryId)
         {
             if (categoryId <= 0)
             {
