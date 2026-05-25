@@ -43,10 +43,11 @@ namespace Xalise_BooksLibrary.Domain.Entities
         }
 
         /// <summary>
-        /// Modifie le nom affiché de l'auteur.
+        /// Modifie le prénom et nom de l'auteur.
         /// </summary>
         /// <param name="firstName">Nouveau prénom de l'auteur.</param>
         /// <param name="lastName">Nouveau nom de famille de l'auteur.</param>
+        /// <exception cref="EntityValidationException">Si <paramref name="firstName"/> ou <paramref name="lastName"/> est <see langword="null"/>, vide ou ne contient que des espaces.</exception>
         public void Rename(string firstName, string lastName)
         {
             if (string.IsNullOrWhiteSpace(firstName))
