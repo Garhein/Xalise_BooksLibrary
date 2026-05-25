@@ -1,4 +1,3 @@
-using System;
 using Xalise_BooksLibrary.Domain.Exceptions;
 
 namespace Xalise_BooksLibrary.Domain.Entities
@@ -29,14 +28,15 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// <param name="name">Nom de la maison d'édition.</param>
         public Publisher(string name)
         {
-            this.ChangeName(name);
+            this.UpdateName(name);
         }
 
         /// <summary>
         /// Modifie le nom de la maison d'édition.
         /// </summary>
         /// <param name="name">Nouveau nom de la maison d'édition.</param>
-        public void ChangeName(string name)
+        /// <exception cref="EntityValidationException">Si <paramref name="name"/> est <see langword="null"/>, vide ou ne contient que des espaces.</exception>
+        public void UpdateName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
