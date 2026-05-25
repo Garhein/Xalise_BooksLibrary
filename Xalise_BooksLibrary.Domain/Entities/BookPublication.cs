@@ -68,6 +68,7 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// Initialise une nouvelle instance de la classe <see cref="BookPublication"/>.
         /// </summary>
         /// <param name="request">Informations nécessaires à la création de la publication.</param>
+        /// <exception cref="ArgumentNullException">Si <paramref name="request"/> est <see langword="null"/>.</exception>
         public BookPublication(CreateBookPublicationRequest request)
         {
             ArgumentNullException.ThrowIfNull(request);
@@ -88,15 +89,16 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// Modifie les informations de la publication.
         /// </summary>
         /// <param name="request">Information à appliquer à la publication.</param>
+        /// <exception cref="ArgumentNullException">Si <paramref name="request"/> est <see langword="null"/>.</exception>
         public void Update(UpdateBookPublicationRequest request)
         {
             ArgumentNullException.ThrowIfNull(request);
 
-            this.ChangeBookId(request.BookId);
-            this.ChangePublisherId(request.PublisherId);
-            this.ChangeEditorialVersionId(request.EditorialVersionId);
-            this.ChangeIsbn(request.Isbn);
-            this.ChangePublicationDate(request.PublicationDate);
+            this.UpdateBookId(request.BookId);
+            this.UpdatePublisherId(request.PublisherId);
+            this.UpdateEditorialVersionId(request.EditorialVersionId);
+            this.UpdateIsbn(request.Isbn);
+            this.UpdatePublicationDate(request.PublicationDate);
         }
 
         /// <summary>
@@ -104,7 +106,7 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// </summary>
         /// <param name="bookId">Identifiant du livre publié.</param>
         /// <exception cref="EntityValidationException">Si <paramref name="bookId"/> est inférieur ou égal à 0.</exception>
-        public void ChangeBookId(int bookId)
+        public void UpdateBookId(int bookId)
         {
             if (bookId <= 0)
             {
@@ -119,7 +121,7 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// </summary>
         /// <param name="publisherId">Identifiant de la maison d'édition.</param>
         /// <exception cref="EntityValidationException">Si <paramref name="publisherId"/> est inférieur ou égal à 0.</exception>
-        public void ChangePublisherId(int publisherId)
+        public void UpdatePublisherId(int publisherId)
         {
             if (publisherId <= 0)
             {
@@ -134,7 +136,7 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// </summary>
         /// <param name="editorialVersionId">Identifiant de la version éditoriale du livre.</param>
         /// <exception cref="EntityValidationException">Si <paramref name="editorialVersionId"/> est inférieur ou égal à 0.</exception>
-        public void ChangeEditorialVersionId(int editorialVersionId)
+        public void UpdateEditorialVersionId(int editorialVersionId)
         {
             if (editorialVersionId <= 0)
             {
@@ -148,7 +150,8 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// Modifie l'ISBN du livre.
         /// </summary>
         /// <param name="isbn">Nouvel ISBN du livre.</param>
-        public void ChangeIsbn(string isbn)
+        /// <exception cref="EntityValidationException">Si <paramref name="isbn"/> est <see langword="null"/>, vide ou ne contient que des espaces.</exception>
+        public void UpdateIsbn(string isbn)
         {
             if (string.IsNullOrWhiteSpace(isbn))
             {
@@ -163,7 +166,7 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// </summary>
         /// <param name="publicationDate">Nouvelle date de publication.</param>
         /// <exception cref="EntityValidationException">Si <paramref name="publicationDate"/> est égal à <see langword="default"/>.</exception>
-        public void ChangePublicationDate(DateOnly publicationDate)
+        public void UpdatePublicationDate(DateOnly publicationDate)
         {
             if (publicationDate == default)
             {
