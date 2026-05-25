@@ -43,7 +43,7 @@ namespace Xalise_BooksLibrary.Domain.Entities
         }
 
         /// <summary>
-        /// Modifie le prénom et nom de l'auteur.
+        /// Modifie le prénom et le nom de famille de l'auteur.
         /// </summary>
         /// <param name="firstName">Nouveau prénom de l'auteur.</param>
         /// <param name="lastName">Nouveau nom de famille de l'auteur.</param>
