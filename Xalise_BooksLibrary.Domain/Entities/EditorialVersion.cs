@@ -28,14 +28,15 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// <param name="name">Nom de la version éditoriale.</param>
         public EditorialVersion(string name)
         {
-            this.ChangeName(name);
+            this.UpdateName(name);
         }
 
         /// <summary>
         /// Modifie le nom de la version éditoriale.
         /// </summary>
         /// <param name="name">Nouveau nom de la version éditoriale.</param>
-        public void ChangeName(string name)
+        /// <exception cref="EntityValidationException">Si <paramref name="name"/> est <see langword="null"/>, vide ou ne contient que des espaces.</exception>
+        public void UpdateName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
