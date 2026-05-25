@@ -44,16 +44,16 @@ namespace Xalise_BooksLibrary.Domain.Entities
         /// <param name="authorId">Identifiant technique de l'auteur associé.</param>
         public void Update(int bookId, int authorId)
         {
-            this.ChangeBookId(bookId);
-            this.ChangeAuthorId(authorId);
+            this.UpdateBookId(bookId);
+            this.UpdateAuthorId(authorId);
         }
 
         /// <summary>
-        /// Modifie l'identifiant du livre.
+        /// Modifie l'identifiant du livre associé.
         /// </summary>
-        /// <param name="bookId">Identifiant du livre.</param>
+        /// <param name="bookId">Identifiant du livre associé.</param>
         /// <exception cref="EntityValidationException">Si <paramref name="bookId"/> est inférieur ou égal à 0.</exception>
-        public void ChangeBookId(int bookId)
+        public void UpdateBookId(int bookId)
         {
             if (bookId <= 0)
             {
@@ -64,11 +64,11 @@ namespace Xalise_BooksLibrary.Domain.Entities
         }
 
         /// <summary>
-        /// Modifie l'identifiant de l'auteur.
+        /// Modifie l'identifiant de l'auteur associé.
         /// </summary>
-        /// <param name="authorId">Identifiant de l'auteur.</param>
+        /// <param name="authorId">Identifiant de l'auteur associé.</param>
         /// <exception cref="EntityValidationException">Si <paramref name="authorId"/> est inférieur ou égal à 0.</exception>
-        public void ChangeAuthorId(int authorId)
+        public void UpdateAuthorId(int authorId)
         {
             if (authorId <= 0)
             {
